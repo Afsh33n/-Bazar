@@ -1,0 +1,13 @@
+<h1><%= @category.name %></h1>
+
+<% if @articles.present? %>
+  <ul>
+    <% @articles.each do |article| %>
+      <li>
+  <%= link_to "#{article.name} - Rs #{article.price}", article_path(article) %>
+</li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Sorry, pena lartik dans sa categori la.</p>
+<% end %>

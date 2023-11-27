@@ -17,7 +17,7 @@
     <%= yield %>
     <% if user_signed_in? %>
     <h2> Hi <%= current_user.first_name %> </h2>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
     <% end %>
   </body>
 </html>
