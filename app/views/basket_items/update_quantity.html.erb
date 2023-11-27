@@ -1,0 +1,8 @@
+<h1>Basket Item Quantity Updated</h1>
+
+<p><strong>Name:</strong> <%= @basket_item.article.name %></p>
+<p><strong>Description:</strong> <%= @basket_item.article.description %></p>
+<p><strong>Price:</strong> <%= @basket_item.article.price %></p>
+<p><strong>New Quantity:</strong> <%= @basket_item.quantity %></p>
+
+<%= link_to 'Back to Basket', basket_path(current_user.basket) %>

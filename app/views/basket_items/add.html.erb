@@ -1,0 +1,9 @@
+<h1>Lartik kin azoute dans to panier</h1>
+
+<p><strong>Name:</strong> <%= @article.name %></p>
+<p><strong>Description:</strong> <%= @article.description %></p>
+<p><strong>Price:</strong> <%= @article.price %></p>
+<p><strong>Quantity:</strong> 1</p>
+
+<%= link_to 'Continue Shopping', root_path %>
+<%= link_to 'View Basket', basket_path(current_user.basket) %>

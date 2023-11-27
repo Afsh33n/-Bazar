@@ -7,7 +7,7 @@
   <%= f.number_field :price %>
   <%= f.label :quantite %>
   <%= f.number_field :quantity %>
-  <%= f.label :categori %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Select a category' } %>
+  <%= f.label :kategori %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Swazir enn kategori' } %>
   <%= f.submit %>
 <% end %>

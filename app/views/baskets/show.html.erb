@@ -1,0 +1,13 @@
+<h1>Mo panier</h1>
+
+<% if @basket_items.present? %>
+  <ul>
+    <% @basket_items.each do |basket_item| %>
+      <li>
+        <%= basket_item.article.name %> - Quantity: <%= basket_item.quantity %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>To panier vide.</p>
+<% end %>
