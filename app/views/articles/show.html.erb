@@ -1,14 +1,15 @@
 <div class="container">
- <h1>Lartik <%= @article.name  %> </h1>
-    <p> Description: <%= @article.description %></p>
-    <p> Price: Rs <%= @article.price %> </p>
-    <p> Quantite: <%= @article.quantity %> </p>
-    <p> Category: <%= @article.category %>   </p>
+  <h1>Lartik <%= @article.name %> </h1>
+  <p> Description: <%= @article.description %></p>
+  <p> Price: Rs <%= @article.price %> </p>
+  <p> Quantite: <%= @article.quantity %> </p>
+  <p> Category: <%= @article.category %> </p>
 
-  <%= link_to "Retour a la list lartik", articles_path(@article) %>
+  <%= form_tag add_to_basket_path, method: :post do %>
+    <%= hidden_field_tag :article_id, @article.id %>
+    <%= submit_tag 'Azout dan mo panier' %>
+  <% end %>
 
-  <%= link_to "Refass moi",
-    article_path(@article),
-    data: {turbo_method: :delete, turbo_confirm: "Eski to sir?"}
-  %>
+  <%= link_to "Retour a la list lartik", articles_path %>
+  <%= link_to "Refass moi", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Eski to sir?" } %>
 </div>

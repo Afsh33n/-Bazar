@@ -19,8 +19,7 @@ class ArticlesController < ApplicationController
   def create
    @article = Article.new(article_params)
    @article.save
-   redirect_to articles_path(@article), notice: 'To lartik in bien creer.'
-
+   redirect_to article_path(@article), notice: 'To lartik in bien creer.'
   end
 
   def edit
@@ -37,6 +36,12 @@ class ArticlesController < ApplicationController
     # @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, notice: 'To lartik in bien refasser.'
+  end
+
+  def add_to_basket
+    @article = Article.find(params[:id])
+    current_user.basket.add_article(@article)
+    redirect_to @article, notice: 'Sa lartik la in bien azout a to panier'
   end
 
   private
