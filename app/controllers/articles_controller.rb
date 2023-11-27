@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @category = Category.find(params[:category_id])
-    @articles = @category.articles
+    # @category = Category.find(params[:category_id])
+    # @articles = @category.articles
   end
 
   def show
