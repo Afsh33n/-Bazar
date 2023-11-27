@@ -6,7 +6,7 @@ class BasketItemsController < ApplicationController
     @basket_items = @basket.basket_items
   end
 
-  def add
+  def add_to_basket
     @article = Article.find(params[:article_id])
     @basket = current_user.basket
     @basket_item = BasketItem.new(basket: @basket, article: @article)

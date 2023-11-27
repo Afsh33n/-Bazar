@@ -1,15 +1,15 @@
 class BasketsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
-    @basket = current_user.basket.includes(:article)
-
+    @basket = Basket.create(user: current_user)
     if @basket
       @basket_items = @basket.basket_items
     else
       redirect_to root_path, notice: 'Azout dans panier avant.'
     end
   end
-
+  
   def add_to_basket
     @article = Article.find(params[:id])
     @basket = current_user.basket
