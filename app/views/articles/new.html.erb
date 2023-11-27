@@ -1,19 +1,4 @@
 <h1>Creer enn nouvo lartik</h1>
 
 <%= render 'form', article: @article %>
-
-<%= form_with(model: @article, url: articles_path, method: :post) do |form| %>
-  <!-- Other article form fields -->
-
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, Category.all.collect { |c| [c.name, c.id] }, { prompt: 'Swazir to categori' } %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-
 <%= link_to 'Back', articles_path %>
