@@ -1,0 +1,14 @@
+<div class="container">
+ <h1>Lartik <%= @article.name  %> </h1>
+    <p> Description: <%= @article.description %></p>
+    <p> Price: Rs <%= @article.price %> </p>
+    <p> Quantite: <%= @article.quantity %> </p>
+    <p> Category: <%= @article.category %>   </p>
+
+  <%= link_to "Retour a la list lartik", articles_path(@article) %>
+
+  <%= link_to "Refass moi",
+    article_path(@article),
+    data: {turbo_method: :delete, turbo_confirm: "Eski to sir?"}
+  %>
+</div>

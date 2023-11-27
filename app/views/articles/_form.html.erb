@@ -1,0 +1,11 @@
+<%= form_with model: article do |f| %>
+  <%= f.label :nom %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :prix %>
+  <%= f.number_field :price %>
+  <%= f.label :quantite %>
+  <%= f.number_field :quantity %>
+  <%= f.submit %>
+<% end %>
