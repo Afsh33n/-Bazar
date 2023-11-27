@@ -1,7 +1,7 @@
 class BasketsController < ApplicationController
 
   def show
-    @basket = current_user.basket
+    @basket = current_user.basket.includes(:article)
 
     if @basket
       @basket_items = @basket.basket_items
@@ -20,5 +20,5 @@ class BasketsController < ApplicationController
     else
       redirect_to @article, alert: 'Pan resi azout dans to panier. Essaye encore.'
     end
-  end 
+  end
 end

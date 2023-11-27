@@ -1,13 +1,30 @@
 <h1>Mo panier</h1>
 
-<% if @basket_items.present? %>
-  <ul>
-    <% @basket_items.each do |basket_item| %>
-      <li>
-        <%= basket_item.article.name %> - Quantity: <%= basket_item.quantity %>
-      </li>
-    <% end %>
-  </ul>
+<% if @basket_items.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Article</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @basket_items.each do |basket_item| %>
+        <tr>
+          <td><%= basket_item.article.name %></td>
+          <td><%= basket_item.article.description %></td>
+          <td><%= basket_item.article.price %></td>
+          <td><%= basket_item.quantity %></td>
+          <td><%= basket_item.article.price * basket_item.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p>Total: <%= number_to_currency(@basket.total_price) %></p>
 <% else %>
-  <p>To panier vide.</p>
+  <p>Your basket is empty.</p>
 <% end %>
