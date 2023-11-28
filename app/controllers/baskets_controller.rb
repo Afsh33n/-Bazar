@@ -9,8 +9,8 @@ class BasketsController < ApplicationController
       redirect_to root_path, notice: 'Azout dans panier avant.'
     end
   end
-  
-  def add_to_basket
+
+  def create
     @article = Article.find(params[:id])
     @basket = current_user.basket
     @basket_item = BasketItem.new(basket: @basket, article: @article, quantity: 1)
@@ -21,4 +21,11 @@ class BasketsController < ApplicationController
       redirect_to @article, alert: 'Pan resi azout dans to panier. Essaye encore.'
     end
   end
+
+  private
+
+  def basket_item_params
+    params.require(:basket_item).permit(:quantity)
+  end
+
 end

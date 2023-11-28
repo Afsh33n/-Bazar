@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
   def show
     # @article = Article.find(params[:id])
+    @basket_item = BasketItem.new
   end
 
   def new

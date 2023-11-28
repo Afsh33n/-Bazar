@@ -18,6 +18,10 @@ class BasketItemsController < ApplicationController
     @basket_item = BasketItem.find(params[:id])
     @basket_item.update(quantity: params[:quantity])
     redirect_to basket_path(current_user.basket), notice: 'To panier a jour'
+
+    def basket_item_params
+      params.require(:basket_item).permit(:quantity)
+    end
   end
 
   def destroy

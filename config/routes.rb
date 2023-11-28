@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
 #article routes
   get "articles", to: "articles#index"
+  post 'articles/:article_id/basket_items', to: 'basket_items#create'
   get "articles/new", to: "articles#new"
   post "articles", to: "articles#create"
   get "articles/:id", to: "articles#show", as: :article
@@ -26,7 +27,7 @@ post 'add_item/:article_id', to: 'baskets#add_item', as: 'add_item'
 
 #basket item routes
 get 'basket_items/:id', to: 'basket_items#show', as: 'basket_item'
-post 'basket_items/:id/add', to: 'basket_items#add_to_basket', as: 'add_to_basket'
+post 'basket_items', to: 'basket_items#create'
 patch 'basket_items/:id/update_quantity', to: 'basket_items#update_quantity', as: 'update_basket_item_quantity'
 delete 'basket_items/:id', to: 'basket_items#destroy', as: 'destroy_basket_item'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

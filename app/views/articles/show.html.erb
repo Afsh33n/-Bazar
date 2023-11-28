@@ -5,10 +5,10 @@
   <p> Quantite: <%= @article.quantity %> </p>
   <p> Category: <%= @article.category %> </p>
 
-  <%= form_tag add_to_basket_path, method: :post do %>
-    <%= hidden_field_tag :article_id, @article.id %>
-    <%= submit_tag 'Azout dan mo panier' %>
-  <% end %>
+<%= simple_form_for @basket_item do |f| %>
+  <%= f.input :article, value: @article.id, as: 'hidden' %>
+  <%= f.submit 'Met dan panier' %>
+<% end %>
 
   <%= link_to "Retour a la list lartik", articles_path %>
   <%= link_to "Refass moi", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Eski to sir?" } %>
