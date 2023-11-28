@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
 #basket routes
 get 'basket', to: 'baskets#show', as: 'basket'
-post 'add_item/:article_id', to: 'baskets#add_item', as: 'add_item'
+get 'add_item/:id', to: 'baskets#create', as: 'basketscreate'
 
 #basket item routes
 get 'basket_items/:id', to: 'basket_items#show', as: 'basket_item'

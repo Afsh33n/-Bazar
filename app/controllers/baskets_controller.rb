@@ -12,7 +12,7 @@ class BasketsController < ApplicationController
 
   def create
     @article = Article.find(params[:id])
-    @basket = current_user.basket
+    @basket = Basket.where(user_id: current_user.id).first
     @basket_item = BasketItem.new(basket: @basket, article: @article, quantity: 1)
 
     if @basket_item.save
@@ -21,11 +21,4 @@ class BasketsController < ApplicationController
       redirect_to @article, alert: 'Pan resi azout dans to panier. Essaye encore.'
     end
   end
-
-  private
-
-  def basket_item_params
-    params.require(:basket_item).permit(:quantity)
-  end
-
 end
